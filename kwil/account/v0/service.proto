@@ -3,7 +3,7 @@ package accountsvc;
 option go_package = "kwil/x/proto/accountspb";
 
 import "google/api/annotations.proto";
-import "kwil/common/account.proto";
+import "kwil/common/v0/account.proto";
 
 service AccountService {
     rpc GetAccount(GetAccountRequest) returns (GetAccountResponse) {
