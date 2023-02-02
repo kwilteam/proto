@@ -4,7 +4,7 @@ option go_package = "kwil/x/proto/pricingpb";
 
 import "google/api/annotations.proto";
 
-import "kwil/pricingsvc/v0/pricing.proto";
+import "kwil/pricing/v0/pricing.proto";
 
 service PricingService {
     rpc EstimateCost(pricing.EstimateRequest) returns (pricing.EstimateResponse) {
