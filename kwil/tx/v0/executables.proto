@@ -2,7 +2,7 @@ syntax = "proto3";
 package txsvc;
 option go_package = "kwil/x/proto/txpb";
 
-import "kwil/common/executable.proto";
+import "kwil/common/v0/executable.proto";
 
 message GetExecutablesRequest {
     string name = 1;

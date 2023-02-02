@@ -4,13 +4,13 @@ option go_package = "kwil/x/proto/txpb";
 
 import "google/api/annotations.proto";
 
-import "kwil/txsvc/broadcast.proto";
-import "kwil/txsvc/executables.proto";
-import "kwil/txsvc/list_db.proto";
-import "kwil/txsvc/schema.proto";
-import "kwil/txsvc/validate.proto";
-import "kwil/txsvc/ping.proto";
-import "kwil/txsvc/address.proto";
+import "kwil/tx/v0/broadcast.proto";
+import "kwil/tx/v0/executables.proto";
+import "kwil/tx/v0/list_db.proto";
+import "kwil/tx/v0/schema.proto";
+import "kwil/tx/v0/validate.proto";
+import "kwil/tx/v0/ping.proto";
+import "kwil/tx/v0/address.proto";
 
 service TxService {
   rpc Broadcast(BroadcastRequest) returns (BroadcastResponse) {

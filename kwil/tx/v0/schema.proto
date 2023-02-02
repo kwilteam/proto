@@ -2,7 +2,7 @@ syntax = "proto3";
 package txsvc;
 option go_package = "kwil/x/proto/txpb";
 
-import "kwil/common/database.proto";
+import "kwil/common/v0/database.proto";
 
 message GetSchemaRequest {
 	string owner = 1;

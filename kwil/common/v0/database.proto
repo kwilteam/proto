@@ -2,7 +2,7 @@ syntax = "proto3";
 package common;
 option go_package = "kwil/x/proto/commonpb";
 
-import "kwil/common/types.proto";
+import "kwil/common/v0/types.proto";
 
 message Database {
 	string name = 1;
