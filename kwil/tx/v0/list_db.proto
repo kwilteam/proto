@@ -1,6 +1,6 @@
 syntax = "proto3";
-package txsvc;
-option go_package = "kwil/x/proto/txpb";
+package tx;
+option go_package = "protobuf/tx";
 
 message ListDatabasesRequest {
 	string owner = 1;
