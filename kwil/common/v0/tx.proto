@@ -1,6 +1,6 @@
 syntax = "proto3";
 package common;
-option go_package = "kwil/api/protobuf/commonpb";
+option go_package = "kwil/api/protobuf/common/v0;commonpb";
 
 message Tx {
     bytes hash = 1;

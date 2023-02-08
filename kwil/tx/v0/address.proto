@@ -1,6 +1,6 @@
 syntax = "proto3";
 package tx;
-option go_package = "kwil/api/protobuf/txpb";
+option go_package = "kwil/api/protobuf/tx/v0;txpb";
 
 message GetAddressRequest {}
 
