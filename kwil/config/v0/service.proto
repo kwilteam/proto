@@ -1,6 +1,6 @@
 syntax = "proto3";
 package config;
-option go_package = "kwil/api/protobuf/config";
+option go_package = "kwil/api/protobuf/configpb";
 
 import "google/api/annotations.proto";
 

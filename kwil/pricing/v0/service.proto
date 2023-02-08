@@ -1,6 +1,6 @@
 syntax = "proto3";
 package pricing;
-option go_package = "kwil/api/protobuf/pricing";
+option go_package = "kwil/api/protobuf/pricingpb";
 
 import "google/api/annotations.proto";
 
