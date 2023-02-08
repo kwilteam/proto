@@ -1,6 +1,6 @@
 syntax = "proto3";
 package pricing;
-option go_package = "protobuf/pricing";
+option go_package = "kwil/protobuf/pricing";
 
 import "kwil/common/v0/tx.proto";
 
