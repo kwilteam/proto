@@ -1,6 +1,6 @@
 syntax = "proto3";
 package common;
-option go_package = "api/protobuf/common";
+option go_package = "kwil/api/protobuf/common";
 
 enum DataType {
 	INVALID_TYPE = 0;
