@@ -32,15 +32,9 @@ service TxService {
       };
   }
 
-  rpc GetExecutables(GetExecutablesRequest) returns (GetExecutablesResponse) {
+  rpc GetQueries(GetQueriesRequest) returns (GetQueriesRequest) {
       option (google.api.http) = {
-          get: "/api/v0/{owner}/{name}/executables"
-      };
-  }
-
-  rpc GetExecutablesById(GetExecutablesByIdRequest) returns (GetExecutablesResponse) {
-      option (google.api.http) = {
-          get: "/api/v0/{id}/executables"
+          get: "/api/v0/{owner}/{name}/queries"
       };
   }
 
