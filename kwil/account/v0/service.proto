@@ -1,6 +1,6 @@
 syntax = "proto3";
 package accounts;
-option go_package = "kwil/api/protobuf/v0;accountspb";
+option go_package = "kwil/api/protobuf/accounts/v0;accountspb";
 
 import "google/api/annotations.proto";
 import "kwil/common/v0/account.proto";
