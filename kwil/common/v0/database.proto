@@ -60,7 +60,6 @@ message Role {
 	repeated string permissions = 3;
 }
 
-
 message Index {
 	string name = 1;
 	string table = 2;

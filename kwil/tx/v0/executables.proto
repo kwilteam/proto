@@ -2,17 +2,12 @@ syntax = "proto3";
 package txsvc;
 option go_package = "kwil/x/proto/txpb";
 
-import "kwil/common/v0/executable.proto";
+import "kwil/common/v0/query.proto";
 
-message GetExecutablesRequest {
-    string name = 1;
-    string owner = 2;
-}
-
-message GetExecutablesResponse {
-    repeated common.Executable executables = 1;
-}
-
-message GetExecutablesByIdRequest {
+message GetQueriesRequest {
     string id = 1;
+}
+
+message GetQueriesResponse {
+    repeated common.QuerySignature queries = 1;
 }

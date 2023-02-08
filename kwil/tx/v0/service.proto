@@ -26,12 +26,6 @@ service TxService {
       };
   }
 
-  rpc GetSchemaById(GetSchemaByIdRequest) returns (GetSchemaResponse) {
-      option (google.api.http) = {
-          get: "/api/v0/{id}/schema"
-      };
-  }
-
   rpc ListDatabases(ListDatabasesRequest) returns (ListDatabasesResponse) {
       option (google.api.http) = {
           get: "/api/v0/{owner}/databases"
