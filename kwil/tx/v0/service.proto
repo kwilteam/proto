@@ -32,7 +32,7 @@ service TxService {
       };
   }
 
-  rpc GetQueries(GetQueriesRequest) returns (GetQueriesRequest) {
+  rpc GetQueries(GetQueriesRequest) returns (GetQueriesResponse) {
       option (google.api.http) = {
           get: "/api/v0/{id}/queries"
       };
