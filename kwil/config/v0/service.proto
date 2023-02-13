@@ -28,6 +28,6 @@ message GetFundingCfgRequest {}
 
 message GetFundingCfgResponse {
   int64 chain_code = 1;
-  string validator_account = 2;
+  string provider_address = 2;
   string pool_address = 3;
 }
