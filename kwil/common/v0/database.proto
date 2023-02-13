@@ -8,7 +8,7 @@ message Database {
 	string name = 1;
 	string owner = 2;
 	repeated Table tables = 3;
-	repeated SQLQuery sql_queries = 4 [json_name = "sql_queries"];;
+	repeated SQLQuery sql_queries = 4 [json_name = "sqlQueries"];;
 	repeated Role roles = 5;
 	repeated Index indexes = 6;
 }
