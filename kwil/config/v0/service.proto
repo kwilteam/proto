@@ -27,6 +27,7 @@ service ConfigService {
 message GetCfgRequest {}
 message GetCfgResponse {
   GetFundingCfgResponse funding = 1;
+  GetGatewayCfgResponse gateway = 2;
 }
 
 message GetFundingCfgRequest {}
