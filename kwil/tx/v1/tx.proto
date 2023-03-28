@@ -35,4 +35,5 @@ enum SignatureType {
 message TxReceipt {
     bytes tx_hash = 1;
     string fee = 2; 
+    bytes body = 3;
 }
