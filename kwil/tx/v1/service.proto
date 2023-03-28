@@ -4,6 +4,7 @@ option go_package = "kwil/api/protobuf/tx/v1;txpb";
 
 import "kwil/tx/v1/broadcast.proto";
 import "kwil/tx/v1/query.proto";
+import "kwil/tx/v1/account.proto";
 import "google/api/annotations.proto";
 
 service TxService {
@@ -18,6 +19,12 @@ service TxService {
         option (google.api.http) = {
             post: "/api/v1/query",
             body: "*"
+        };
+    }
+
+    rpc GetAccount(GetAccountRequest) returns (GetAccountResponse) {
+        option (google.api.http) = {
+            get: "/api/v1/accounts/{address}"
         };
     }
 }
