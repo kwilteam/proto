@@ -3,7 +3,8 @@ package tx;
 option go_package = "kwil/api/protobuf/tx/v1;txpb";
 
 message QueryRequest {
-    string query = 1;
+    string dbid = 1;
+    string query = 2;
 }
 
 message QueryResponse {
