@@ -9,5 +9,5 @@ message BroadcastRequest {
 }
 
 message BroadcastResponse {
-    tx.TxReceipt tx_hash = 1;
+    tx.TxReceipt receipt = 1;
 }
