@@ -1,0 +1,11 @@
+syntax = "proto3";
+package tx;
+option go_package = "kwil/api/protobuf/tx/v1;txpb";
+
+message QueryRequest {
+    string query = 1;
+}
+
+message QueryResponse {
+    bytes result = 1;
+}
