@@ -1,0 +1,11 @@
+syntax = "proto3";
+package tx;
+option go_package = "kwil/api/protobuf/tx/v1;txpb";
+
+message Ping {
+  string message = 1;
+}
+
+message Pong {
+  string message = 1;
+}

@@ -5,6 +5,7 @@ option go_package = "kwil/api/protobuf/tx/v1;txpb";
 import "kwil/tx/v1/broadcast.proto";
 import "kwil/tx/v1/price.proto";
 import "kwil/tx/v1/query.proto";
+import "kwil/tx/v1/ping.proto";
 import "kwil/tx/v1/account.proto";
 import "google/api/annotations.proto";
 
@@ -33,6 +34,12 @@ service TxService {
     rpc GetAccount(GetAccountRequest) returns (GetAccountResponse) {
         option (google.api.http) = {
             get: "/api/v1/accounts/{address}"
+        };
+    }
+
+    rpc Ping(Ping) returns (Pong) {
+        option (google.api.http) = {
+            get: "/api/v1/ping"
         };
     }
 }
