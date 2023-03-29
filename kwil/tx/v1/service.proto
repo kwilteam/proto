@@ -7,6 +7,7 @@ import "kwil/tx/v1/price.proto";
 import "kwil/tx/v1/query.proto";
 import "kwil/tx/v1/ping.proto";
 import "kwil/tx/v1/account.proto";
+import "kwil/tx/v1/config.proto";
 import "google/api/annotations.proto";
 
 service TxService {
@@ -40,6 +41,12 @@ service TxService {
     rpc Ping(PingRequest) returns (PingResponse) {
         option (google.api.http) = {
             get: "/api/v1/ping"
+        };
+    }
+
+    rpc GetConfig(GetConfigRequest) returns (GetConfigResponse) {
+        option (google.api.http) = {
+            get: "/api/v1/config"
         };
     }
 }

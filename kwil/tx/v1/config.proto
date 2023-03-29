@@ -1,0 +1,11 @@
+syntax = "proto3";
+package tx;
+option go_package = "kwil/api/protobuf/tx/v1;txpb";
+
+message GetConfigRequest {}
+
+message GetConfigResponse {
+    int64 chain_code = 1 [json_name = "chain_code"];
+    string provider_address = 2 [json_name = "provider_address"];
+    string pool_address = 3 [json_name = "pool_address"];
+}
