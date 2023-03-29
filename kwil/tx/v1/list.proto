@@ -1,0 +1,11 @@
+syntax = "proto3";
+package tx;
+option go_package = "kwil/api/protobuf/tx/v1;txpb";
+
+message ListDatasetsRequest {
+  string owner = 1;
+}
+
+message ListDatasetsResponse {
+  repeated string datasets = 1;
+}
