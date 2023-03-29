@@ -1,0 +1,73 @@
+syntax = "proto3";
+package tx;
+option go_package = "kwil/api/protobuf/tx/v1;txpb";
+
+message GetSchemaRequest {
+    string dbid = 1;
+}
+
+message GetSchemaResponse {
+    Dataset dataset = 1;
+}
+
+message Dataset {
+    string owner = 1;
+    string name = 2;
+    repeated Table tables = 3;
+    repeated Action actions = 4;
+}
+
+message Table {
+    string name = 1;
+    repeated Column columns = 2;
+    repeated Index indexes = 3;
+}
+
+message Column {
+    string name = 1;
+    DataType type = 2;
+    repeated Attribute attributes = 3;
+}
+
+enum DataType {
+    INVALID_DATA_TYPE = 0;
+    NULL_DATA_TYPE = 1;
+    STRING_DATA_TYPE = 2;
+    INT_DATA_TYPE = 3;
+}
+
+message Attribute {
+    AttributeType type = 1;
+    bytes value = 2;
+}
+
+enum AttributeType {
+    INVALID_ATTRIBUTE = 0;
+	PRIMARY_KEY = 1;
+	UNIQUE = 2;
+	NOT_NULL = 3;
+	DEFAULT = 4;
+	MIN = 5;
+	MAX = 6;
+	MIN_LENGTH = 7;
+	MAX_LENGTH = 8;
+}
+
+message Index {
+    string name = 1;
+    repeated string columns = 2;
+    IndexType type = 3;
+}
+
+enum IndexType {
+    INVALID_INDEX_TYPE = 0;
+    BTREE_INDEX_TYPE = 1;
+    UNIQUE_BTREE_INDEX_TYPE = 2;
+}
+
+message Action {
+    string name = 1;
+    bool public = 2;
+    repeated string inputs = 3;
+    repeated string statements = 4;
+}

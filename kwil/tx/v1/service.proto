@@ -9,6 +9,7 @@ import "kwil/tx/v1/ping.proto";
 import "kwil/tx/v1/account.proto";
 import "kwil/tx/v1/config.proto";
 import "kwil/tx/v1/list.proto";
+import "kwil/tx/v1/dataset.proto";
 import "google/api/annotations.proto";
 
 service TxService {
@@ -54,6 +55,12 @@ service TxService {
     rpc ListDatabases(ListDatabasesRequest) returns (ListDatabasesResponse) {
         option (google.api.http) = {
             get: "/api/v1/databases"
+        };
+    }
+
+    rpc GetSchema(GetSchemaRequest) returns (GetSchemaResponse) {
+        option (google.api.http) = {
+            get: "/api/v1/databases/{database}/schemas/{schema}"
         };
     }
 }
