@@ -4,20 +4,12 @@ option go_package = "kwil/api/protobuf/tx/v1;txpb";
 
 message Tx {
     bytes hash = 1;
-    PayloadType payload_type = 2 [json_name = "payload_type"];
+    int32 payload_type = 2 [json_name = "payload_type"];
     bytes payload = 3;
     int64 nonce = 4;
     Signature signature = 5;
     string fee = 6;
     string sender = 7;
-}
-
-enum PayloadType {
-    INVALID_PAYLOAD_TYPE = 0;
-    DEPLOY_DATABASE = 1;
-    MODIFY_DATABASE = 2;
-    DELETE_DATABASE = 3;
-    EXECUTE_ACTION = 4;
 }
 
 message Signature {
