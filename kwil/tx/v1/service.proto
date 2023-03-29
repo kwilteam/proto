@@ -51,9 +51,9 @@ service TxService {
         };
     }
 
-    rpc ListDatasets(ListDatasetsRequest) returns (ListDatasetsResponse) {
+    rpc ListDatabases(ListDatabasesRequest) returns (ListDatabasesResponse) {
         option (google.api.http) = {
-            get: "/api/v1/datasets"
+            get: "/api/v1/databases"
         };
     }
 }

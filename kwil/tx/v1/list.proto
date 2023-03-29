@@ -2,10 +2,10 @@ syntax = "proto3";
 package tx;
 option go_package = "kwil/api/protobuf/tx/v1;txpb";
 
-message ListDatasetsRequest {
+message ListDatabasesRequest {
   string owner = 1;
 }
 
-message ListDatasetsResponse {
-  repeated string datasets = 1;
+message ListDatabasesResponse {
+  repeated string databases = 1;
 }
