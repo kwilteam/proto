@@ -54,7 +54,7 @@ service TxService {
 
     rpc ListDatabases(ListDatabasesRequest) returns (ListDatabasesResponse) {
         option (google.api.http) = {
-            get: "/api/v1/databases"
+            get: "/api/v1/{owner}/databases"
         };
     }
 
