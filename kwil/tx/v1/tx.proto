@@ -14,7 +14,7 @@ message Tx {
 
 message Signature {
     bytes signature_bytes = 1 [json_name = "signature_bytes"];
-    SignatureType signature_type = 2 [json_name = "signature_type"];
+    int32 signature_type = 2 [json_name = "signature_type"];
 }
 
 enum SignatureType {
