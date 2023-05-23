@@ -25,44 +25,19 @@ message Table {
 
 message Column {
     string name = 1;
-    int32 type = 2;
+    string type = 2;
     repeated Attribute attributes = 3;
 }
 
-enum DataType {
-    INVALID_DATA_TYPE = 0;
-    NULL_DATA_TYPE = 1;
-    STRING_DATA_TYPE = 2;
-    INT_DATA_TYPE = 3;
-}
-
 message Attribute {
-    int32 type = 1;
-    bytes value = 2;
-}
-
-enum AttributeType {
-    INVALID_ATTRIBUTE = 0;
-	PRIMARY_KEY = 1;
-	UNIQUE = 2;
-	NOT_NULL = 3;
-	DEFAULT = 4;
-	MIN = 5;
-	MAX = 6;
-	MIN_LENGTH = 7;
-	MAX_LENGTH = 8;
+    string type = 1;
+    string value = 2;
 }
 
 message Index {
     string name = 1;
     repeated string columns = 2;
-    int32 type = 3;
-}
-
-enum IndexType {
-    INVALID_INDEX_TYPE = 0;
-    BTREE_INDEX_TYPE = 1;
-    UNIQUE_BTREE_INDEX_TYPE = 2;
+    string type = 3;
 }
 
 message Action {
