@@ -1,0 +1,25 @@
+syntax = "proto3";
+package tx;
+option go_package = "github.com/kwilteam/kwil-db/api/protobuf/tx/v1;txpb";
+
+
+//import "kwil/tx/v1/tx.proto";
+
+message Validator {
+    bytes pubkey = 1; // ED25519 PubKey
+    int64 power = 2;
+}
+
+enum RequestStatus {
+    OK = 0;
+    ERROR = 1;
+}
+
+message ValidatorApprovalRequest {
+    bytes PubKey = 1; // ED25519 PubKey
+}
+
+message ValidatorApprovalResponse {
+    RequestStatus status = 1;
+    string log = 2;
+}

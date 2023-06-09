@@ -63,4 +63,11 @@ service TxService {
             get: "/api/v1/databases/{dbid}/schema"
         };
     }
+
+    rpc ApproveValidator(ApproveValidatorRequest) returns (ApproveValidatorResponse) {
+        option (google.api.http) = {
+            post: "/api/v1/approve_validator",
+            body: "*"
+        };
+    }
 }
