@@ -1,0 +1,17 @@
+syntax = "proto3";
+package proto.kwil.node.v1;
+option go_package = "github.com/kwilteam/kwil-db/api/protobuf/node/v1;node";
+
+message Message {
+  oneof sum {
+    ValidatorJoinRequestVote validator_join_request_vote = 1;
+    ValidatorJoinResponseVote validator_join_response_vote = 2;
+  }
+}
+
+message ValidatorJoinRequestVote { string validator_address = 1; }
+
+message ValidatorJoinResponseVote {
+  string validator_address = 1;
+  bool accepted = 2;
+}

@@ -12,11 +12,12 @@ import "kwil/tx/v1/list.proto";
 import "kwil/tx/v1/dataset.proto";
 import "kwil/tx/v1/call.proto";
 import "google/api/annotations.proto";
+import "kwil/tx/v1/validator.proto";
 
 service TxService {
     rpc Broadcast(BroadcastRequest) returns (BroadcastResponse) {
         option (google.api.http) = {
-            post: "/api/v1/broadcast",
+            post: "/api/v1/broadcast", 
             body: "*"
         };
     }
@@ -65,6 +66,40 @@ service TxService {
         };
     }
 
+    rpc ApproveValidator(ValidatorApprovalRequest) returns (ValidatorApprovalResponse) {
+        option (google.api.http) = {
+            post: "/api/v1/approve_validator",
+            body: "*"
+        };
+    }
+
+    rpc ValidatorJoin(ValidatorJoinRequest) returns (ValidatorJoinResponse) {
+        option (google.api.http) = {
+            post: "/api/v1/validator_join",
+            body: "*"
+        };
+    }
+
+    rpc ValidatorLeave(ValidatorLeaveRequest) returns (ValidatorLeaveResponse) {
+        option (google.api.http) = {
+            post: "/api/v1/validator_leave",
+            body: "*"
+        };
+    }
+
+    rpc ValidatorJoinStatus(ValidatorJoinStatusRequest) returns (ValidatorJoinStatusResponse) {
+        option (google.api.http) = {
+            get: "/api/v1/validator_join_status"
+        };
+    }
+
+    rpc GasCosts(GasCostsRequest) returns (GasCostsResponse) {
+        option (google.api.http) = {
+            post: "/api/v1/gas_costs"
+            body: "*"
+        };
+    }
+    
     rpc Call(CallRequest) returns (CallResponse) {
       option (google.api.http) = {
         post: "/api/v1/call",

@@ -1,0 +1,68 @@
+syntax = "proto3";
+package tx;
+option go_package = "github.com/kwilteam/kwil-db/api/protobuf/tx/v1;txpb";
+
+
+import "kwil/tx/v1/tx.proto";
+
+message Validator {
+    bytes pubkey = 1; // ED25519 PubKey
+    int64 power = 2;
+}
+
+enum RequestStatus {
+    OK = 0;
+    ERROR = 1;
+}
+
+message ValidatorApprovalRequest {
+    bytes PubKey = 1; // ED25519 PubKey
+}
+
+message ValidatorApprovalResponse {
+    RequestStatus status = 1;
+    string log = 2;
+}
+
+/*
+    If power is 0, the validator will be removed from the validator set
+    If power is > 0, if the validator is in the approved validator list, validator will be added to the validator set
+    Base64 encoded both pubkey and validator power
+*/
+message ValidatorJoinRequest {
+    tx.Tx tx = 1;
+}
+
+message ValidatorJoinResponse { 
+    tx.TxReceipt receipt = 1;
+}
+
+message ValidatorLeaveRequest {
+    tx.Tx tx = 1;
+}
+
+message ValidatorLeaveResponse {
+    tx.TxReceipt receipt = 1;
+}
+
+enum JoinStatus {
+    INITIATED = 0;
+    PENDING = 1;
+    APPROVED = 2;
+    REJECTED = 3;
+
+    UNKNOWN = 50;
+}
+
+message ValidatorJoinStatusRequest {
+    bytes Pubkey = 1; // ED25519 PubKey
+}
+
+message ValidatorJoinStatusResponse {
+    int64 approved = 1;
+    int64 rejected = 2;
+    int64 pending = 3;
+    repeated string approvedValidators = 4;
+    repeated string rejectedValidators = 5;
+    JoinStatus status = 6;
+}
