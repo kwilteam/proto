@@ -11,6 +11,7 @@ import "kwil/tx/v1/config.proto";
 import "kwil/tx/v1/list.proto";
 import "kwil/tx/v1/dataset.proto";
 import "google/api/annotations.proto";
+import "kwil/tx/v1/validator.proto";
 
 service TxService {
     rpc Broadcast(BroadcastRequest) returns (BroadcastResponse) {
@@ -64,7 +65,7 @@ service TxService {
         };
     }
 
-    rpc ApproveValidator(ApproveValidatorRequest) returns (ApproveValidatorResponse) {
+    rpc ApproveValidator(ValidatorApprovalRequest) returns (ValidatorApprovalResponse) {
         option (google.api.http) = {
             post: "/api/v1/approve_validator",
             body: "*"
