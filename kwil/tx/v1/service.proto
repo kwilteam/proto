@@ -16,7 +16,7 @@ import "kwil/tx/v1/validator.proto";
 service TxService {
     rpc Broadcast(BroadcastRequest) returns (BroadcastResponse) {
         option (google.api.http) = {
-            post: "/api/v1/broadcast",
+            post: "/api/v1/broadcast", 
             body: "*"
         };
     }
@@ -68,6 +68,13 @@ service TxService {
     rpc ApproveValidator(ValidatorApprovalRequest) returns (ValidatorApprovalResponse) {
         option (google.api.http) = {
             post: "/api/v1/approve_validator",
+            body: "*"
+        };
+    }
+
+    rpc ValidatorJoin(ValidatorJoinRequest) returns (ValidatorJoinResponse) {
+        option (google.api.http) = {
+            post: "/api/v1/validator_join",
             body: "*"
         };
     }
