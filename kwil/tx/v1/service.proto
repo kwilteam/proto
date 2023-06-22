@@ -78,4 +78,17 @@ service TxService {
             body: "*"
         };
     }
+
+    rpc ValidatorLeave(ValidatorLeaveRequest) returns (ValidatorLeaveResponse) {
+        option (google.api.http) = {
+            post: "/api/v1/validator_leave",
+            body: "*"
+        };
+    }
+
+    rpc ValidatorJoinStatus(ValidatorJoinStatusRequest) returns (ValidatorJoinStatusResponse) {
+        option (google.api.http) = {
+            get: "/api/v1/validator_join_status"
+        };
+    }
 }

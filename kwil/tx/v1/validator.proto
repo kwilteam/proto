@@ -36,3 +36,33 @@ message ValidatorJoinRequest {
 message ValidatorJoinResponse { 
     tx.TxReceipt receipt = 1;
 }
+
+message ValidatorLeaveRequest {
+    tx.Tx tx = 1;
+}
+
+message ValidatorLeaveResponse {
+    tx.TxReceipt receipt = 1;
+}
+
+enum JoinStatus {
+    INITIATED = 0;
+    PENDING = 1;
+    APPROVED = 2;
+    REJECTED = 3;
+
+    UNKNOWN = 50;
+}
+
+message ValidatorJoinStatusRequest {
+    bytes Pubkey = 1; // ED25519 PubKey
+}
+
+message ValidatorJoinStatusResponse {
+    int64 approved = 1;
+    int64 rejected = 2;
+    int64 pending = 3;
+    repeated string approvedValidators = 4;
+    repeated string rejectedValidators = 5;
+    JoinStatus status = 6;
+}
