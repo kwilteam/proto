@@ -91,11 +91,4 @@ service TxService {
             get: "/api/v1/validator_join_status"
         };
     }
-
-    rpc GasCosts(GasCostsRequest) returns (GasCostsResponse) {
-        option (google.api.http) = {
-            post: "/api/v1/gas_costs"
-            body: "*"
-        };
-    }
 }

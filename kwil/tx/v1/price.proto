@@ -11,10 +11,3 @@ message EstimatePriceRequest {
 message EstimatePriceResponse {
     string price = 1;
 }
-
-
-message GasCostsRequest {
-    bool enabled = 1; // All nodes should agree on this value (or) Updates should be pushed to all nodes
-}
-
-message GasCostsResponse {}
