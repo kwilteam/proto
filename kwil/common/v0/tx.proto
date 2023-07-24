@@ -24,7 +24,6 @@ enum PayloadType {
     DELETE_DATABASE = 3;
     EXECUTE_QUERY = 4;
     WITHDRAW = 5;
-    VALIDATOR_JOIN = 6;
 }
 
 enum SignatureType {
