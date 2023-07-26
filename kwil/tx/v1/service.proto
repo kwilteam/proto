@@ -10,6 +10,7 @@ import "kwil/tx/v1/account.proto";
 import "kwil/tx/v1/config.proto";
 import "kwil/tx/v1/list.proto";
 import "kwil/tx/v1/dataset.proto";
+import "kwil/tx/v1/call.proto";
 import "google/api/annotations.proto";
 
 service TxService {
@@ -62,5 +63,12 @@ service TxService {
         option (google.api.http) = {
             get: "/api/v1/databases/{dbid}/schema"
         };
+    }
+
+    rpc Call(CallRequest) returns (CallResponse) {
+      option (google.api.http) = {
+        post: "/api/v1/call",
+        body: "*"
+      };
     }
 }

@@ -45,4 +45,5 @@ message Action {
     bool public = 2;
     repeated string inputs = 3;
     repeated string statements = 4;
+    string mutability = 5;
 }
