@@ -46,4 +46,5 @@ message Action {
     repeated string inputs = 3;
     repeated string statements = 4;
     string mutability = 5;
+    repeated string auxiliaries = 6;
 }
