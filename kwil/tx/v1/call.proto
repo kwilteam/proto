@@ -3,13 +3,11 @@ package tx;
 option go_package = "github.com/kwilteam/kwil-db/api/protobuf/tx/v1;txpb";
 
 import "kwil/tx/v1/tx.proto";
-import "google/protobuf/any.proto";
-
 
 message CallPayload {
   string dbid = 1;
   string action = 2;
-  map<string, google.protobuf.Any> params = 3;
+  map<string, ScalarValue> params = 3;
 }
 
 message CallRequest {
@@ -20,4 +18,11 @@ message CallRequest {
 
 message CallResponse {
   bytes result = 1;
+}
+
+message ScalarValue {
+  oneof value {
+    string string_value = 1;
+    int64 int_value = 2;
+  }
 }
