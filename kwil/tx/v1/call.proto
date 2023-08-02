@@ -7,7 +7,7 @@ import "kwil/tx/v1/tx.proto";
 message CallPayload {
   string dbid = 1;
   string action = 2;
-  map<string, ScalarValue> params = 3;
+  map<string, ScalarValue> args = 3;
 }
 
 message CallRequest {
