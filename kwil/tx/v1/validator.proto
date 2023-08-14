@@ -29,20 +29,21 @@ message ValidatorApprovalResponse {
     If power is > 0, if the validator is in the approved validator list, validator will be added to the validator set
     Base64 encoded both pubkey and validator power
 */
+// TODO: these should not wrap Transactions; all of these should just get forwarded to the broadcast endpoint
 message ValidatorJoinRequest {
-    tx.Tx tx = 1;
+    tx.Transaction tx = 1;
 }
 
 message ValidatorJoinResponse { 
-    tx.TxReceipt receipt = 1;
+    tx.TransactionStatus receipt = 1;
 }
 
 message ValidatorLeaveRequest {
-    tx.Tx tx = 1;
+    tx.Transaction tx = 1;
 }
 
 message ValidatorLeaveResponse {
-    tx.TxReceipt receipt = 1;
+    tx.TransactionStatus receipt = 1;
 }
 
 enum JoinStatus {
