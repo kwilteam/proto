@@ -7,7 +7,7 @@ import "kwil/tx/v1/tx.proto";
 message CallRequest {
   bytes payload = 1;
   tx.Signature signature = 2;
-  string sender = 3;
+  bytes sender = 3;
 }
 
 message CallResponse {
