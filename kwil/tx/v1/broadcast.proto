@@ -9,5 +9,5 @@ message BroadcastRequest {
 }
 
 message BroadcastResponse {
-    tx.TransactionStatus receipt = 1;
+    tx.TransactionStatus status = 1;
 }
