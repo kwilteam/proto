@@ -2,14 +2,17 @@ syntax = "proto3";
 package tx;
 option go_package = "github.com/kwilteam/kwil-db/api/protobuf/tx/v1;txpb";
 
-message Tx {
-    bytes hash = 1;
-    int32 payload_type = 2 [json_name = "payload_type"];
-    bytes payload = 3;
-    int64 nonce = 4;
-    Signature signature = 5;
-    string fee = 6;
-    string sender = 7;
+message Transaction {
+    message Body {
+        bytes payload = 1;
+        string payload_type = 2;
+        string fee = 3;
+        uint64 nonce = 4;
+        bytes salt = 5;
+    }
+    Body body = 1;
+    Signature signature = 2;
+    bytes sender = 3;
 }
 
 message Signature {
@@ -20,12 +23,11 @@ message Signature {
 enum SignatureType {
     INVALID_SINATURE_TYPE = 0;
     PK_SECP256K1_UNCOMPRESSED = 1;
-	  ACCOUNT_SECP256K1_UNCOMPRESSED = 2;
-	  END_SIGNATURE_TYPE = 3;
+	ACCOUNT_SECP256K1_UNCOMPRESSED = 2;
+	END_SIGNATURE_TYPE = 3;
 }
 
-message TxReceipt {
-    bytes tx_hash = 1;
-    string fee = 2;
-    bytes body = 3;
+message TransactionStatus {
+    bytes id = 1;
+    string status = 2;
 }
