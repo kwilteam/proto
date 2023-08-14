@@ -29,5 +29,6 @@ enum SignatureType {
 
 message TransactionStatus {
     bytes id = 1;
-    string status = 2;
+    string fee = 2;
+    string status = 3;
 }
