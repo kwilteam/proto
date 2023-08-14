@@ -5,7 +5,7 @@ option go_package = "github.com/kwilteam/kwil-db/api/protobuf/tx/v1;txpb";
 import "kwil/tx/v1/tx.proto";
 
 message EstimatePriceRequest {
-    tx.Tx tx = 1;
+    tx.Transaction tx = 1;
 }
 
 message EstimatePriceResponse {
