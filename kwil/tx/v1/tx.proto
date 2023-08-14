@@ -31,4 +31,5 @@ message TransactionStatus {
     bytes id = 1;
     string fee = 2;
     string status = 3;
+    repeated string errors = 4;
 }
