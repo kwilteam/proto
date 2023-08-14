@@ -7,14 +7,15 @@ message GetSchemaRequest {
 }
 
 message GetSchemaResponse {
-    Dataset dataset = 1;
+    Schema schema = 1;
 }
 
-message Dataset {
+message Schema {
     string owner = 1;
     string name = 2;
     repeated Table tables = 3;
     repeated Action actions = 4;
+    repeated Extensions extensions = 5;
 }
 
 message Table {
@@ -47,4 +48,14 @@ message Action {
     repeated string statements = 4;
     string mutability = 5;
     repeated string auxiliaries = 6;
+}
+
+message Extensions {
+    message ExtensionConfig {
+        string argument = 1;
+        string value = 2;
+    }
+    string name = 1;
+    repeated ExtensionConfig initialization = 2;
+    string alias = 3;
 }
