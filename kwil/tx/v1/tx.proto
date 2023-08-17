@@ -17,14 +17,7 @@ message Transaction {
 
 message Signature {
     bytes signature_bytes = 1 [json_name = "signature_bytes"];
-    int32 signature_type = 2 [json_name = "signature_type"];
-}
-
-enum SignatureType {
-    INVALID_SINATURE_TYPE = 0;
-    PK_SECP256K1_UNCOMPRESSED = 1;
-	ACCOUNT_SECP256K1_UNCOMPRESSED = 2;
-	END_SIGNATURE_TYPE = 3;
+    string signature_type = 2 [json_name = "signature_type"];
 }
 
 message TransactionStatus {
