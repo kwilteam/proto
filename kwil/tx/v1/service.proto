@@ -13,11 +13,12 @@ import "kwil/tx/v1/dataset.proto";
 import "kwil/tx/v1/call.proto";
 import "google/api/annotations.proto";
 import "kwil/tx/v1/validator.proto";
+import "kwil/tx/v1/tx_query.proto";
 
 service TxService {
     rpc Broadcast(BroadcastRequest) returns (BroadcastResponse) {
         option (google.api.http) = {
-            post: "/api/v1/broadcast", 
+            post: "/api/v1/broadcast",
             body: "*"
         };
     }
@@ -92,10 +93,17 @@ service TxService {
             get: "/api/v1/validator_join_status"
         };
     }
-    
+
     rpc Call(CallRequest) returns (CallResponse) {
       option (google.api.http) = {
         post: "/api/v1/call",
+        body: "*"
+      };
+    }
+
+    rpc TxQuery(TxQueryRequest) returns (TxQueryResponse) {
+      option (google.api.http) = {
+        post: "/api/v1/tx_query",
         body: "*"
       };
     }
