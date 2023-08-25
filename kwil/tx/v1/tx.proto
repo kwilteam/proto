@@ -20,9 +20,19 @@ message Signature {
     string signature_type = 2 [json_name = "signature_type"];
 }
 
+message TransactionResult {
+  uint32 code = 1;
+  string log = 2;
+  int64 gas_used = 3;
+  int64 gas_wanted = 4;
+  bytes data = 5; // Data contains the output of the transaction.
+  repeated bytes events = 6;
+}
+
+// deprecated
 message TransactionStatus {
-    bytes id = 1;
-    string fee = 2;
-    string status = 3;
-    repeated string errors = 4;
+  bytes id = 1;
+  string fee = 2;
+  string status = 3;
+  repeated string errors = 4;
 }
