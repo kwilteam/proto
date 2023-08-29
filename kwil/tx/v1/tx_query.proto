@@ -5,12 +5,12 @@ option go_package = "github.com/kwilteam/kwil-db/api/protobuf/tx/v1;txpb";
 import "kwil/tx/v1/tx.proto";
 
 message TxQueryRequest {
-  bytes tx_hash = 1;
+  bytes tx_hash = 1 [json_name = "tx_hash"];
 }
 
 message TxQueryResponse {
   bytes hash = 1;
   uint64 height = 2;
   tx.Transaction tx = 3;
-  tx.TransactionResult tx_result = 4;
+  tx.TransactionResult tx_result = 4 [json_name = "tx_result"];
 }

@@ -9,5 +9,5 @@ message BroadcastRequest {
 }
 
 message BroadcastResponse {
-    bytes tx_hash = 1;
+    bytes tx_hash = 1 [json_name = "tx_hash"];
 }
