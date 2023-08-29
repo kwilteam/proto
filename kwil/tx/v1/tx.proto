@@ -5,7 +5,7 @@ option go_package = "github.com/kwilteam/kwil-db/api/protobuf/tx/v1;txpb";
 message Transaction {
     message Body {
         bytes payload = 1;
-        string payload_type = 2;
+        string payload_type = 2 [json_name = "payload_type"];
         string fee = 3;
         uint64 nonce = 4;
         bytes salt = 5;
@@ -23,8 +23,8 @@ message Signature {
 message TransactionResult {
   uint32 code = 1;
   string log = 2;
-  int64 gas_used = 3;
-  int64 gas_wanted = 4;
+  int64 gas_used = 3 [json_name = "gas_used"];
+  int64 gas_wanted = 4 [json_name = "gas_wanted"];
   bytes data = 5; // Data contains the output of the transaction.
   repeated bytes events = 6;
 }

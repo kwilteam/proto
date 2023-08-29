@@ -34,7 +34,7 @@ message ValidatorJoinRequest {
     tx.Transaction tx = 1;
 }
 
-message ValidatorJoinResponse { 
+message ValidatorJoinResponse {
     tx.TransactionStatus receipt = 1;
 }
 
@@ -63,7 +63,7 @@ message ValidatorJoinStatusResponse {
     int64 approved = 1;
     int64 rejected = 2;
     int64 pending = 3;
-    repeated string approvedValidators = 4;
-    repeated string rejectedValidators = 5;
+    repeated string approved_validators = 4 [json_name = "approved_validators"];
+    repeated string rejected_validators = 5 [json_name = "rejected_validators"];
     JoinStatus status = 6;
 }
