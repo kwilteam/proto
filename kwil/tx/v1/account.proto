@@ -3,13 +3,13 @@ package tx;
 option go_package = "github.com/kwilteam/kwil-db/api/protobuf/tx/v1;txpb";
 
 message Account {
-    string address = 1;
+    bytes public_key = 1 [json_name = "public_key"];
     string balance = 2;
     int64 nonce = 3;
 }
 
 message GetAccountRequest {
-    string address = 1;
+    bytes public_key = 1 [json_name = "public_key"];
 }
 
 message GetAccountResponse {
