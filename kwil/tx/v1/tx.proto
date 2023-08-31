@@ -4,15 +4,17 @@ option go_package = "github.com/kwilteam/kwil-db/api/protobuf/tx/v1;txpb";
 
 message Transaction {
     message Body {
-        bytes payload = 1;
-        string payload_type = 2 [json_name = "payload_type"];
-        string fee = 3;
-        uint64 nonce = 4;
-        bytes salt = 5;
+        string description = 1;
+        bytes payload = 2;
+        string payload_type = 3 [json_name = "payload_type"];
+        string fee = 4;
+        uint64 nonce = 5;
+        bytes salt = 6;
     }
     Body body = 1;
     Signature signature = 2;
     bytes sender = 3;
+    uint32 serialization = 4;
 }
 
 message Signature {
