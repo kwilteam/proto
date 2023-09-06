@@ -10,7 +10,7 @@ message TxQueryRequest {
 
 message TxQueryResponse {
   bytes hash = 1;
-  uint64 height = 2;
+  int64 height = 2;
   tx.Transaction tx = 3;
   tx.TransactionResult tx_result = 4 [json_name = "tx_result"];
 }
