@@ -46,24 +46,19 @@ message ValidatorLeaveResponse {
     tx.TransactionStatus receipt = 1;
 }
 
-enum JoinStatus {
-    INITIATED = 0;
-    PENDING = 1;
-    APPROVED = 2;
-    REJECTED = 3;
+message CurrentValidatorsRequest {
+}
 
-    UNKNOWN = 50;
+message CurrentValidatorsResponse {
+    repeated Validator validators = 1;
 }
 
 message ValidatorJoinStatusRequest {
-    bytes Pubkey = 1; // ED25519 PubKey
+    bytes pubkey = 1; // ED25519 PubKey
 }
 
 message ValidatorJoinStatusResponse {
-    int64 approved = 1;
-    int64 rejected = 2;
-    int64 pending = 3;
-    repeated string approved_validators = 4 [json_name = "approved_validators"];
-    repeated string rejected_validators = 5 [json_name = "rejected_validators"];
-    JoinStatus status = 6;
+    repeated bytes approved_validators = 1 [json_name = "approved_validators"];
+    repeated bytes pending_validators = 2 [json_name = "pending_validators"];
+    int64 power = 3;
 }

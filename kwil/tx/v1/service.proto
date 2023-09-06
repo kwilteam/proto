@@ -90,7 +90,13 @@ service TxService {
 
     rpc ValidatorJoinStatus(ValidatorJoinStatusRequest) returns (ValidatorJoinStatusResponse) {
         option (google.api.http) = {
-            get: "/api/v1/validator_join_status"
+            get: "/api/v1/validator_join_status/{pubkey}"
+        };
+    }
+
+    rpc CurrentValidators(CurrentValidatorsRequest) returns (CurrentValidatorsResponse) {
+        option (google.api.http) = {
+            get: "/api/v1/current_validators"
         };
     }
 
