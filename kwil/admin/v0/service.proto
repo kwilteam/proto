@@ -18,4 +18,16 @@ service AdminService {
             get: "/api/v0/version"
         };
     }
+
+    rpc Status(StatusRequest) returns (StatusResponse) {
+        option (google.api.http) = {
+            get: "/api/v0/status"
+        };
+    }
+
+    rpc Peers(PeersRequest) returns (PeersResponse) {
+        option (google.api.http) = {
+            get: "/api/v0/peers"
+        };
+    }
 }
