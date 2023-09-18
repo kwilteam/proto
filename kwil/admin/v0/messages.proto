@@ -19,3 +19,46 @@ message VersionResponse {
 	// string prerelease = 5;
 	// string build_metadata = 6;
 }
+
+message StatusRequest {}
+message StatusResponse {
+	NodeInfo node = 1;
+	SyncInfo sync = 2;
+	ValidatorInfo validator = 3;
+}
+
+message NodeInfo {
+	string chain_id = 1 [json_name = "chain_id"];
+	string node_name = 2 [json_name = "node_name"];
+	string node_id = 3 [json_name = "node_id"];
+	uint64 protocol_version = 4 [json_name = "protocol_version"];
+	uint64 app_version = 5 [json_name = "app_version"];
+	uint64 block_version = 6 [json_name = "block_version"];
+	string listen_addr = 7 [json_name = "listen_addr"];
+	string rpc_addr = 8 [json_name = "rpc_addr"];
+}
+
+message SyncInfo {
+	string app_hash = 1 [json_name = "app_hash"];
+	string best_block_hash = 2 [json_name = "best_block_hash"];
+	int64 best_block_height = 3 [json_name = "best_block_height"];
+	int64 best_block_time = 4 [json_name = "best_block_time"];
+	bool syncing = 5;
+}
+
+message ValidatorInfo {
+	bytes pubkey = 1;
+	string pubkey_type = 2 [json_name = "pubkey_type"];
+	int64 power = 3;
+}
+
+message Peer {
+	NodeInfo node = 1;
+	bool inbound = 2;
+	string remote_addr = 3 [json_name = "remote_addr"];
+}
+
+message PeersRequest {}
+message PeersResponse {
+	repeated Peer peers = 1;
+}
