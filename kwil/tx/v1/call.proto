@@ -5,10 +5,15 @@ option go_package = "github.com/kwilteam/kwil-db/api/protobuf/tx/v1;txpb";
 import "kwil/tx/v1/tx.proto";
 
 message CallRequest {
-  bytes payload = 1;
+  message Body{
+    string description = 1;
+    bytes payload = 2;
+  }
+
+  Body body = 1;
   tx.Signature signature = 2;
   bytes sender = 3;
-}
+  string serialization = 4;}
 
 message CallResponse {
   bytes result = 1;
