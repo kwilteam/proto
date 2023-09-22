@@ -1,0 +1,21 @@
+syntax = "proto3";
+package admin;
+option go_package = "github.com/kwilteam/kwil-db/api/protobuf/admin/v0;admpb";
+
+import "kwil/admin/v0/messages.proto";
+
+import "google/api/annotations.proto";
+
+service AdminService {
+    rpc Ping(PingRequest) returns (PingResponse) {
+        option (google.api.http) = {
+            get: "/api/v0/ping"
+        };
+    }
+
+    rpc Version(VersionRequest) returns (VersionResponse) {
+        option (google.api.http) = {
+            get: "/api/v0/version"
+        };
+    }
+}
