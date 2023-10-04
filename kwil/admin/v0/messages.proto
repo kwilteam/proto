@@ -22,9 +22,10 @@ message VersionResponse {
 
 message StatusRequest {}
 message StatusResponse {
-	NodeInfo node = 1;
-	SyncInfo sync = 2;
-	ValidatorInfo validator = 3;
+	bool running = 1;
+	NodeInfo node = 2;
+	SyncInfo sync = 3;
+	ValidatorInfo validator = 4;
 }
 
 message NodeInfo {
