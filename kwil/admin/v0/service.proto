@@ -1,6 +1,6 @@
 syntax = "proto3";
 package admin;
-option go_package = "github.com/kwilteam/kwil-db/api/protobuf/admin/v0;admpb";
+option go_package = "github.com/kwilteam/kwil-db/core/rpc/protobuf/admin/v0;admpb";
 
 import "kwil/admin/v0/messages.proto";
 
