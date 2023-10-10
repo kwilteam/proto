@@ -1,6 +1,6 @@
 syntax = "proto3";
 package tx;
-option go_package = "github.com/kwilteam/kwil-db/api/protobuf/tx/v1;txpb";
+option go_package = "github.com/kwilteam/kwil-db/core/rpc/protobuf/tx/v1;txpb";
 
 message GetSchemaRequest {
     string dbid = 1;
