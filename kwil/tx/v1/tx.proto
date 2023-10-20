@@ -8,7 +8,7 @@ message Transaction {
         string payload_type = 2 [json_name = "payload_type"];
         string fee = 3;
         uint64 nonce = 4;
-        bytes salt = 5;
+        string chain_id = 5 [json_name = "chain_id"];
         string description = 6;
     }
     Body body = 1;
