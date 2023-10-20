@@ -1,0 +1,12 @@
+syntax = "proto3";
+package tx;
+option go_package = "github.com/kwilteam/kwil-db/core/rpc/protobuf/tx/v1;txpb";
+
+message ChainInfoRequest {
+}
+
+message ChainInfoResponse {
+  string chain_id = 1  [json_name = "chain_id"];
+  uint64 height = 2;
+  string hash = 3;
+}

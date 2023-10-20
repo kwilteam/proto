@@ -3,6 +3,7 @@ package tx;
 option go_package = "github.com/kwilteam/kwil-db/core/rpc/protobuf/tx/v1;txpb";
 
 import "kwil/tx/v1/broadcast.proto";
+import "kwil/tx/v1/chain.proto";
 import "kwil/tx/v1/price.proto";
 import "kwil/tx/v1/query.proto";
 import "kwil/tx/v1/ping.proto";
@@ -16,6 +17,12 @@ import "kwil/tx/v1/validator.proto";
 import "kwil/tx/v1/tx_query.proto";
 
 service TxService {
+    rpc ChainInfo(ChainInfoRequest) returns (ChainInfoResponse) {
+        option (google.api.http) = {
+            get: "/api/v1/chain_info",
+        };
+    }
+
     rpc Broadcast(BroadcastRequest) returns (BroadcastResponse) {
         option (google.api.http) = {
             post: "/api/v1/broadcast",
