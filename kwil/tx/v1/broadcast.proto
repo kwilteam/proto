@@ -11,3 +11,9 @@ message BroadcastRequest {
 message BroadcastResponse {
     bytes tx_hash = 1 [json_name = "tx_hash"];
 }
+
+message BroadcastErrorDetails {
+    uint32 code = 1;
+    string hash = 2; // may be empty if it could not even deserialize our tx
+    string message = 3;
+}
