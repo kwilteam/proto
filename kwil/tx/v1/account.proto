@@ -16,7 +16,7 @@ enum AccountStatus {
 
 message GetAccountRequest {
     bytes public_key = 1 [json_name = "public_key"];
-    optional AccountStatus status = 2;
+    optional AccountStatus status = 2; // Mapped to URL query parameter `status`.
 }
 
 message GetAccountResponse {
