@@ -45,7 +45,7 @@ message Index {
 message Annotation {
     message Attribute {
       string name = 1;
-      string value = 3;
+      string value = 2;
     }
     string target = 1;
     repeated Attribute attributes = 2;
