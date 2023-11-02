@@ -41,6 +41,16 @@ message Index {
     string type = 3;
 }
 
+
+message Annotation {
+    message Attribute {
+      string name = 1;
+      string value = 3;
+    }
+    string target = 1;
+    repeated Attribute attributes = 2;
+}
+
 message Action {
     string name = 1;
     bool public = 2;
@@ -48,6 +58,7 @@ message Action {
     repeated string statements = 4;
     string mutability = 5;
     repeated string auxiliaries = 6;
+    repeated Annotation annotations = 7;
 }
 
 message Extensions {
