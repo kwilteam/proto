@@ -1,0 +1,17 @@
+syntax = "proto3";
+package tx;
+option go_package = "github.com/kwilteam/kwil-db/core/rpc/protobuf/tx/v1;txpb";
+// Path: proto/kwil/tx/v1/sig_verify.proto
+
+import "kwil/tx/v1/tx.proto";
+
+message SignatureVerifyRequest {
+  Signature signature = 1;
+  bytes public_key = 2 [json_name = "public_key"];
+  bytes msg = 3;
+}
+
+message SignatureVerifyResponse {
+  bool valid = 1;
+  string error = 2;
+}
