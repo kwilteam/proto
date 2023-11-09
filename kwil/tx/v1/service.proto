@@ -16,7 +16,7 @@ import "kwil/tx/v1/dataset.proto";
 import "kwil/tx/v1/call.proto";
 import "kwil/tx/v1/validator.proto";
 import "kwil/tx/v1/tx_query.proto";
-import "kwil/tx/v1/sig_verify.proto";
+import "kwil/tx/v1/signature.proto";
 
 service TxService {
     rpc ChainInfo(ChainInfoRequest) returns (ChainInfoResponse) {
@@ -123,9 +123,9 @@ service TxService {
       };
     }
 
-    rpc SignatureVerify(SignatureVerifyRequest) returns (SignatureVerifyResponse) {
+    rpc VerifySignature(VerifySignatureRequest) returns (VerifySignatureResponse) {
       option (google.api.http) = {
-        post: "/api/v1/signature_verify",
+        post: "/api/v1/verify_signature",
         body: "*"
       };
     }

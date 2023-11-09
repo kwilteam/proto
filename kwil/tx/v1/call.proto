@@ -2,7 +2,7 @@ syntax = "proto3";
 package tx;
 option go_package = "github.com/kwilteam/kwil-db/core/rpc/protobuf/tx/v1;txpb";
 
-import "kwil/tx/v1/tx.proto";
+import "kwil/tx/v1/signature.proto";
 
 message CallRequest {
   message Body{
@@ -11,7 +11,7 @@ message CallRequest {
   }
 
   Body body = 1;
-  tx.Signature signature = 2;
+  Signature signature = 2;
   bytes sender = 3;
   string serialization = 4;}
 
