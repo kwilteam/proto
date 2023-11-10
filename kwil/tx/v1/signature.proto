@@ -9,7 +9,7 @@ message Signature {
 
 message VerifySignatureRequest {
   Signature signature = 1;
-  bytes public_key = 2 [json_name = "public_key"];
+  bytes sender = 2;
   bytes msg = 3;
 }
 
