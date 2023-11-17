@@ -9,7 +9,7 @@ message Signature {
 
 message VerifySignatureRequest {
   Signature signature = 1;
-  bytes sender = 2;
+  string sender = 2;
   bytes msg = 3;
 }
 
