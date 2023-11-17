@@ -48,7 +48,7 @@ service TxService {
 
     rpc GetAccount(GetAccountRequest) returns (GetAccountResponse) {
         option (google.api.http) = {
-            get: "/api/v1/accounts/{public_key}"
+            get: "/api/v1/accounts/{identifier}"
         };
     }
 
