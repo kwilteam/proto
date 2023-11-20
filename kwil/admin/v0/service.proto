@@ -30,4 +30,10 @@ service AdminService {
             get: "/api/v0/peers"
         };
     }
+
+    rpc BroadcastAddress(BroadcastAddressRequest) returns (BroadcastAddressResponse) {
+        option (google.api.http) = {
+            get: "/api/v0/broadcast_address"
+        };
+    }
 }

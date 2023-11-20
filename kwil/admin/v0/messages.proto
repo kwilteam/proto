@@ -62,3 +62,8 @@ message PeersRequest {}
 message PeersResponse {
 	repeated Peer peers = 1;
 }
+
+message BroadcastAddressRequest {}
+message BroadcastAddressResponse {
+	string broadcast_address = 1;
+}
