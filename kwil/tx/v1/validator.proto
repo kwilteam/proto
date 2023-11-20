@@ -6,7 +6,7 @@ option go_package = "github.com/kwilteam/kwil-db/core/rpc/protobuf/tx/v1;txpb";
 import "kwil/tx/v1/tx.proto";
 
 message Validator {
-    string pubkey = 1; // ED25519 PubKey
+    bytes pubkey = 1; // ED25519 PubKey
     int64 power = 2;
 }
 
@@ -16,7 +16,7 @@ enum RequestStatus {
 }
 
 message ValidatorApprovalRequest {
-    string PubKey = 1; // ED25519 PubKey
+    bytes PubKey = 1; // ED25519 PubKey
 }
 
 message ValidatorApprovalResponse {
@@ -54,11 +54,11 @@ message CurrentValidatorsResponse {
 }
 
 message ValidatorJoinStatusRequest {
-    string pubkey = 1; // ED25519 hex PubKey
+    bytes pubkey = 1; // ED25519 PubKey
 }
 
 message ValidatorJoinStatusResponse {
-    repeated string approved_validators = 1 [json_name = "approved_validators"];
-    repeated string pending_validators = 2 [json_name = "pending_validators"];
+    repeated bytes approved_validators = 1 [json_name = "approved_validators"];
+    repeated bytes pending_validators = 2 [json_name = "pending_validators"];
     int64 power = 3;
 }
