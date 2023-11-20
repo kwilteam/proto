@@ -3,7 +3,7 @@ package tx;
 option go_package = "github.com/kwilteam/kwil-db/core/rpc/protobuf/tx/v1;txpb";
 
 message Account {
-    bytes public_key = 1 [json_name = "public_key"];
+    string identifier = 1;
     string balance = 2;
     int64 nonce = 3;
 }
@@ -15,7 +15,7 @@ enum AccountStatus {
 }
 
 message GetAccountRequest {
-    bytes public_key = 1 [json_name = "public_key"];
+    string identifier = 1;
     optional AccountStatus status = 2; // Mapped to URL query parameter `status`.
 }
 
