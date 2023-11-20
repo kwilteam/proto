@@ -11,7 +11,7 @@ message GetSchemaResponse {
 }
 
 message Schema {
-    bytes owner = 1;
+    string owner = 1;
     string name = 2;
     repeated Table tables = 3;
     repeated Action actions = 4;
