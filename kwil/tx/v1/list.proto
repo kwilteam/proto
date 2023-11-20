@@ -3,7 +3,7 @@ package tx;
 option go_package = "github.com/kwilteam/kwil-db/core/rpc/protobuf/tx/v1;txpb";
 
 message ListDatabasesRequest {
-  bytes owner = 1;
+  string owner = 1;
 }
 
 message ListDatabasesResponse {
