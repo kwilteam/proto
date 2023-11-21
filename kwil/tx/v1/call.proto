@@ -12,7 +12,7 @@ message CallRequest {
 
   Body body = 1;
   Signature signature = 2;
-  string caller = 3;
+  bytes sender = 3;
   string serialization = 4;}
 
 message CallResponse {
