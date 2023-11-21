@@ -2,8 +2,6 @@ syntax = "proto3";
 package tx;
 option go_package = "github.com/kwilteam/kwil-db/core/rpc/protobuf/tx/v1;txpb";
 
-import "kwil/tx/v1/signature.proto";
-
 message CallRequest {
   message Body{
     string description = 1;
@@ -11,9 +9,11 @@ message CallRequest {
   }
 
   Body body = 1;
-  Signature signature = 2;
+  // auth_type is the type of authenticator that will be used to derive
+  // identifier from the sender.
+  string auth_type = 2 [json_name = "auth_type"];
   bytes sender = 3;
-  string serialization = 4;}
+}
 
 message CallResponse {
   bytes result = 1;
