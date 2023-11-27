@@ -16,7 +16,7 @@ message StatusRequest {}
 message StatusResponse {
 	NodeInfo node = 1;
 	SyncInfo sync = 2;
-	ValidatorInfo validator = 3;
+	Validator validator = 3;
 }
 
 message NodeInfo {
@@ -38,10 +38,9 @@ message SyncInfo {
 	bool syncing = 5;
 }
 
-message ValidatorInfo {
-	bytes pubkey = 1;
-	string pubkey_type = 2 [json_name = "pubkey_type"];
-	int64 power = 3;
+message Validator {
+    bytes pubkey = 1; // ED25519 PubKey
+    int64 power = 2;
 }
 
 message Peer {
@@ -53,4 +52,29 @@ message Peer {
 message PeersRequest {}
 message PeersResponse {
 	repeated Peer peers = 1;
+}
+
+// the following are all transactions, and therefore return a tx.BroadcastResponse
+message ApproveRequest {
+	bytes pubkey = 1;
+}
+message JoinRequest {}
+message LeaveRequest {}
+message RemoveRequest {
+	bytes pubkey = 1;
+}
+
+message JoinStatusRequest {
+	bytes pubkey = 1;
+}
+
+message JoinStatusResponse {
+    repeated bytes approved_validators = 1 [json_name = "approved_validators"];
+    repeated bytes pending_validators = 2 [json_name = "pending_validators"];
+    int64 power = 3;
+}
+
+message ListValidatorsRequest {}
+message ListValidatorsResponse {
+	repeated Validator validators = 1;
 }
