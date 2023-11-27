@@ -15,7 +15,7 @@ message Transaction {
     }
     Body body = 1;
     Signature signature = 2;
-    string sender = 3;
+    bytes sender = 3;
     string serialization = 4;
 }
 
