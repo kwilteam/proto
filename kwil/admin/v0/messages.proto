@@ -2,14 +2,6 @@ syntax = "proto3";
 package admin;
 option go_package = "github.com/kwilteam/kwil-db/core/rpc/protobuf/admin/v0;admpb";
 
-message PingRequest {
-  string message = 1;
-}
-
-message PingResponse {
-  string message = 1;
-}
-
 message VersionRequest {}
 message VersionResponse {
 	string version_string = 1;
