@@ -7,12 +7,6 @@ import "kwil/admin/v0/messages.proto";
 import "google/api/annotations.proto";
 
 service AdminService {
-    rpc Ping(PingRequest) returns (PingResponse) {
-        option (google.api.http) = {
-            get: "/api/v0/ping"
-        };
-    }
-
     rpc Version(VersionRequest) returns (VersionResponse) {
         option (google.api.http) = {
             get: "/api/v0/version"
