@@ -72,6 +72,7 @@ message JoinStatusResponse {
     repeated bytes approved_validators = 1 [json_name = "approved_validators"];
     repeated bytes pending_validators = 2 [json_name = "pending_validators"];
     int64 power = 3;
+	int64 expiration = 4;
 }
 
 message ListValidatorsRequest {}
