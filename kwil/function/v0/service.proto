@@ -1,0 +1,16 @@
+syntax = "proto3";
+package function;
+option go_package = "github.com/kwilteam/kwil-db/core/rpc/protobuf/functions/v0;functionpb";
+
+import "kwil/function/v0/messages.proto";
+
+import "google/api/annotations.proto";
+
+service FunctionService {
+    rpc VerifySignature(VerifySignatureRequest) returns (VerifySignatureResponse) {
+        option (google.api.http) = {
+          post: "/api/v1/verify_signature",
+          body: "*"
+        };
+    };
+}
