@@ -22,6 +22,7 @@ message Table {
     string name = 1;
     repeated Column columns = 2;
     repeated Index indexes = 3;
+    repeated ForeignKey foreign_keys = 4 [json_name = "foreign_keys"];
 }
 
 message Column {
@@ -59,4 +60,16 @@ message Extensions {
     string name = 1;
     repeated ExtensionConfig initialization = 2;
     string alias = 3;
+}
+
+message ForeignKey {
+    repeated string child_keys = 1 [json_name = "child_keys"]; 
+    repeated string parent_keys = 2 [json_name = "parent_keys"];
+    string parent_table = 3 [json_name = "parent_table"];
+    repeated ForeignKeyAction actions = 4;
+}
+
+message ForeignKeyAction {
+    string on = 1;
+    string do = 2;
 }
