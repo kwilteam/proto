@@ -1,6 +1,6 @@
 syntax = "proto3";
 package function;
-option go_package = "github.com/kwilteam/kwil-db/core/rpc/protobuf/functions/v0;functionpb";
+option go_package = "github.com/kwilteam/kwil-db/core/rpc/protobuf/function/v0;functionpb";
 
 import "kwil/function/v0/messages.proto";
 
