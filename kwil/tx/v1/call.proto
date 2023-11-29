@@ -4,8 +4,7 @@ option go_package = "github.com/kwilteam/kwil-db/core/rpc/protobuf/tx/v1;txpb";
 
 message CallRequest {
   message Body{
-    string description = 1;
-    bytes payload = 2;
+    bytes payload = 1;
   }
 
   Body body = 1;
