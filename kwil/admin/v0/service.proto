@@ -54,7 +54,7 @@ service AdminService {
         };
     }
 
-    rpc JoinStatus(JoinStatusRequest) returns (PendingJoinRequest) {
+    rpc JoinStatus(JoinStatusRequest) returns (JoinStatusResponse) {
         option (google.api.http) = {
             post: "/api/v0/joinstatus"
             body: "*"
