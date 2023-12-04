@@ -15,18 +15,11 @@ import "kwil/tx/v1/list.proto";
 import "kwil/tx/v1/dataset.proto";
 import "kwil/tx/v1/call.proto";
 import "kwil/tx/v1/tx_query.proto";
-import "kwil/tx/v1/info.proto";
 
 service TxService {
     rpc ChainInfo(ChainInfoRequest) returns (ChainInfoResponse) {
         option (google.api.http) = {
             get: "/api/v1/chain_info",
-        };
-    }
-
-    rpc NodeInfo(NodeInfoRequest) returns (NodeInfoResponse) {
-        option (google.api.http) = {
-            get: "/api/v1/node_info",
         };
     }
 
