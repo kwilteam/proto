@@ -2,11 +2,11 @@ syntax = "proto3";
 package tx;
 option go_package = "github.com/kwilteam/kwil-db/core/rpc/protobuf/tx/v1;txpb";
 
-// InfoRequest requests a node's information.
-message InfoRequest {}
+// NodeInfoRequest requests a node's information.
+message NodeInfoRequest {}
 
-// InfoResponse is a node's information.
-message InfoResponse {
+// NodeInfoResponse is a node's information.
+message NodeInfoResponse {
     string node_id = 1 [json_name = "node_id"];
     bytes public_key = 2 [json_name = "public_key"];
     string p2p_address = 3 [json_name = "p2p_address"];

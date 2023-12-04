@@ -24,9 +24,9 @@ service TxService {
         };
     }
 
-    rpc Info(InfoRequest) returns (InfoResponse) {
+    rpc NodeInfo(NodeInfoRequest) returns (NodeInfoResponse) {
         option (google.api.http) = {
-            get: "/api/v1/info",
+            get: "/api/v1/node_info",
         };
     }
 
