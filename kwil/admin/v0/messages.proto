@@ -68,14 +68,20 @@ message JoinStatusRequest {
 	bytes pubkey = 1;
 }
 
-message JoinStatusResponse {
+message PendingJoinRequest {
     repeated bytes approved_validators = 1 [json_name = "approved_validators"];
     repeated bytes pending_validators = 2 [json_name = "pending_validators"];
     int64 power = 3;
 	int64 expiration = 4;
+	bytes pubkey = 5;
 }
 
 message ListValidatorsRequest {}
 message ListValidatorsResponse {
 	repeated Validator validators = 1;
+}
+
+message ListJoinRequestsRequest {}
+message ListJoinRequestsResponse {
+	repeated PendingJoinRequest join_requests = 1 [json_name = "join_requests"];
 }

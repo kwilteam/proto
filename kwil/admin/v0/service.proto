@@ -54,7 +54,7 @@ service AdminService {
         };
     }
 
-    rpc JoinStatus(JoinStatusRequest) returns (JoinStatusResponse) {
+    rpc JoinStatus(JoinStatusRequest) returns (PendingJoinRequest) {
         option (google.api.http) = {
             post: "/api/v0/joinstatus"
             body: "*"
@@ -64,6 +64,12 @@ service AdminService {
     rpc ListValidators(ListValidatorsRequest) returns (ListValidatorsResponse) {
         option (google.api.http) = {
             get: "/api/v0/validators"
+        };
+    }
+
+    rpc ListPendingJoins(ListJoinRequestsRequest) returns (ListJoinRequestsResponse) {
+        option (google.api.http) = {
+            get: "/api/v0/pendingjoins"
         };
     }
 }
