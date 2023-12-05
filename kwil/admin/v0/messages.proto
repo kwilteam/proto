@@ -2,14 +2,6 @@ syntax = "proto3";
 package admin;
 option go_package = "github.com/kwilteam/kwil-db/core/rpc/protobuf/admin/v0;admpb";
 
-message PingRequest {
-  string message = 1;
-}
-
-message PingResponse {
-  string message = 1;
-}
-
 message VersionRequest {}
 message VersionResponse {
 	string version_string = 1;
@@ -24,7 +16,7 @@ message StatusRequest {}
 message StatusResponse {
 	NodeInfo node = 1;
 	SyncInfo sync = 2;
-	ValidatorInfo validator = 3;
+	Validator validator = 3;
 }
 
 message NodeInfo {
@@ -46,10 +38,9 @@ message SyncInfo {
 	bool syncing = 5;
 }
 
-message ValidatorInfo {
-	bytes pubkey = 1;
-	string pubkey_type = 2 [json_name = "pubkey_type"];
-	int64 power = 3;
+message Validator {
+    bytes pubkey = 1; // ED25519 PubKey
+    int64 power = 2;
 }
 
 message Peer {
@@ -61,4 +52,44 @@ message Peer {
 message PeersRequest {}
 message PeersResponse {
 	repeated Peer peers = 1;
+}
+
+// the following are all transactions, and therefore return a tx.BroadcastResponse
+message ApproveRequest {
+	bytes pubkey = 1;
+}
+message JoinRequest {}
+message LeaveRequest {}
+message RemoveRequest {
+	bytes pubkey = 1;
+}
+
+message JoinStatusRequest {
+	bytes pubkey = 1;
+}
+message JoinStatusResponse {
+	PendingJoin join_request = 1 [json_name = "join_request"];
+}
+
+message PendingJoin {
+    bytes candidate = 1; // ED25519 PubKey
+	int64 power = 2;
+	int64 expires_at = 3 [json_name = "expires_at"];
+	repeated bytes board = 4; // all validators
+	repeated bool approved = 5; // whether each validator has approved
+}
+
+message ListValidatorsRequest {}
+message ListValidatorsResponse {
+	repeated Validator validators = 1;
+}
+
+message ListJoinRequestsRequest {}
+message ListJoinRequestsResponse {
+	repeated PendingJoin join_requests = 1 [json_name = "join_requests"];
+}
+
+message GetConfigRequest {}
+message GetConfigResponse {
+	bytes config = 1; // due to the size of the config, and how often it is updated, doing this for now
 }

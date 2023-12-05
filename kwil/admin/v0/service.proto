@@ -3,16 +3,11 @@ package admin;
 option go_package = "github.com/kwilteam/kwil-db/core/rpc/protobuf/admin/v0;admpb";
 
 import "kwil/admin/v0/messages.proto";
+import "kwil/tx/v1/broadcast.proto";
 
 import "google/api/annotations.proto";
 
 service AdminService {
-    rpc Ping(PingRequest) returns (PingResponse) {
-        option (google.api.http) = {
-            get: "/api/v0/ping"
-        };
-    }
-
     rpc Version(VersionRequest) returns (VersionResponse) {
         option (google.api.http) = {
             get: "/api/v0/version"
@@ -28,6 +23,59 @@ service AdminService {
     rpc Peers(PeersRequest) returns (PeersResponse) {
         option (google.api.http) = {
             get: "/api/v0/peers"
+        };
+    }
+
+    rpc Approve(ApproveRequest) returns (tx.BroadcastResponse) {
+        option (google.api.http) = {
+            post: "/api/v0/approve"
+            body: "*"
+        };
+    }
+
+    rpc Join(JoinRequest) returns (tx.BroadcastResponse) {
+        option (google.api.http) = {
+            post: "/api/v0/join"
+            body: "*"
+        };
+    }
+
+    rpc Leave(LeaveRequest) returns (tx.BroadcastResponse) {
+        option (google.api.http) = {
+            post: "/api/v0/leave"
+            body: "*"
+        };
+    }
+
+    rpc Remove(RemoveRequest) returns (tx.BroadcastResponse) {
+        option (google.api.http) = {
+            post: "/api/v0/remove"
+            body: "*"
+        };
+    }
+
+    rpc JoinStatus(JoinStatusRequest) returns (JoinStatusResponse) {
+        option (google.api.http) = {
+            post: "/api/v0/joinstatus"
+            body: "*"
+        };
+    }
+
+    rpc ListValidators(ListValidatorsRequest) returns (ListValidatorsResponse) {
+        option (google.api.http) = {
+            get: "/api/v0/validators"
+        };
+    }
+
+    rpc ListPendingJoins(ListJoinRequestsRequest) returns (ListJoinRequestsResponse) {
+        option (google.api.http) = {
+            get: "/api/v0/pendingjoins"
+        };
+    }
+
+    rpc GetConfig(GetConfigRequest) returns (GetConfigResponse) {
+        option (google.api.http) = {
+            get: "/api/v0/config"
         };
     }
 }

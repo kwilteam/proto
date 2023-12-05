@@ -1,0 +1,16 @@
+syntax = "proto3";
+package function;
+option go_package = "github.com/kwilteam/kwil-db/core/rpc/protobuf/function/v0;functionpb";
+
+import "kwil/tx/v1/signature.proto";
+
+message VerifySignatureRequest {
+    tx.Signature signature = 1;
+    bytes sender = 2;
+    bytes msg = 3;
+  }
+  
+  message VerifySignatureResponse {
+    bool valid = 1;
+    string error = 2;
+  }

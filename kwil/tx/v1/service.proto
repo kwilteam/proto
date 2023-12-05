@@ -14,9 +14,7 @@ import "kwil/tx/v1/config.proto";
 import "kwil/tx/v1/list.proto";
 import "kwil/tx/v1/dataset.proto";
 import "kwil/tx/v1/call.proto";
-import "kwil/tx/v1/validator.proto";
 import "kwil/tx/v1/tx_query.proto";
-import "kwil/tx/v1/signature.proto";
 
 service TxService {
     rpc ChainInfo(ChainInfoRequest) returns (ChainInfoResponse) {
@@ -76,39 +74,6 @@ service TxService {
         };
     }
 
-    rpc ApproveValidator(ValidatorApprovalRequest) returns (ValidatorApprovalResponse) {
-        option (google.api.http) = {
-            post: "/api/v1/approve_validator",
-            body: "*"
-        };
-    }
-
-    rpc ValidatorJoin(ValidatorJoinRequest) returns (ValidatorJoinResponse) {
-        option (google.api.http) = {
-            post: "/api/v1/validator_join",
-            body: "*"
-        };
-    }
-
-    rpc ValidatorLeave(ValidatorLeaveRequest) returns (ValidatorLeaveResponse) {
-        option (google.api.http) = {
-            post: "/api/v1/validator_leave",
-            body: "*"
-        };
-    }
-
-    rpc ValidatorJoinStatus(ValidatorJoinStatusRequest) returns (ValidatorJoinStatusResponse) {
-        option (google.api.http) = {
-            get: "/api/v1/validator_join_status/{pubkey}"
-        };
-    }
-
-    rpc CurrentValidators(CurrentValidatorsRequest) returns (CurrentValidatorsResponse) {
-        option (google.api.http) = {
-            get: "/api/v1/current_validators"
-        };
-    }
-
     rpc Call(CallRequest) returns (CallResponse) {
       option (google.api.http) = {
         post: "/api/v1/call",
@@ -119,13 +84,6 @@ service TxService {
     rpc TxQuery(TxQueryRequest) returns (TxQueryResponse) {
       option (google.api.http) = {
         post: "/api/v1/tx_query",
-        body: "*"
-      };
-    }
-
-    rpc VerifySignature(VerifySignatureRequest) returns (VerifySignatureResponse) {
-      option (google.api.http) = {
-        post: "/api/v1/verify_signature",
         body: "*"
       };
     }
