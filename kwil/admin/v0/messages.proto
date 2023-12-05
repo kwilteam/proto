@@ -88,3 +88,8 @@ message ListJoinRequestsRequest {}
 message ListJoinRequestsResponse {
 	repeated PendingJoin join_requests = 1 [json_name = "join_requests"];
 }
+
+message GetConfigRequest {}
+message GetConfigResponse {
+	bytes config = 1; // due to the size of the config, and how often it is updated, doing this for now
+}

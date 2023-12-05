@@ -72,4 +72,10 @@ service AdminService {
             get: "/api/v0/pendingjoins"
         };
     }
+
+    rpc GetConfig(GetConfigRequest) returns (GetConfigResponse) {
+        option (google.api.http) = {
+            get: "/api/v0/config"
+        };
+    }
 }
