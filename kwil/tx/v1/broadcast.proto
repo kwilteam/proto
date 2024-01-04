@@ -4,8 +4,15 @@ option go_package = "github.com/kwilteam/kwil-db/core/rpc/protobuf/tx/v1;txpb";
 
 import "kwil/tx/v1/tx.proto";
 
+enum BroadcastSync {
+    async = 0; // do not wait for acceptance into mempool
+    sync = 1; // ensure it is accepted to mempool before returning
+    commit = 2; // wait for the transaction to be included in a block
+}
+
 message BroadcastRequest {
     tx.Transaction tx = 1;
+    optional BroadcastSync sync = 2;
 }
 
 message BroadcastResponse {
