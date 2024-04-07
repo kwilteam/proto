@@ -45,11 +45,11 @@ message Index {
 message Action {
     string name = 1;
     bool public = 2;
-    repeated string inputs = 3;
-    repeated string statements = 4;
-    string mutability = 5;
-    repeated string auxiliaries = 6;
-    repeated string annotations = 7;
+    repeated string parameters = 3;
+    repeated string modifiers = 4;
+    string body = 5;
+    repeated string annotations = 6;
+
 }
 
 message Extensions {
@@ -72,4 +72,27 @@ message ForeignKey {
 message ForeignKeyAction {
     string on = 1;
     string do = 2;
+}
+
+message Procedure {
+    string name = 1;
+    repeated TypedVariable parameters = 2;
+    bool public = 3;
+    repeated string modifiers = 4;
+    string body = 5;
+    // either return_types or return_table should be set
+    repeated string return_types = 6;
+    ReturnTable return_table = 7;
+    repeated string annotations = 8;
+}
+
+message ReturnTable {
+    string name = 1;
+    repeated TypedVariable columns = 2;
+}
+
+
+message TypedVariable {
+    string name = 1;
+    string type = 2;
 }
