@@ -16,6 +16,7 @@ message Schema {
     repeated Table tables = 3;
     repeated Action actions = 4;
     repeated Extensions extensions = 5;
+    repeated Procedure procedures = 6;
 }
 
 message Table {
@@ -27,7 +28,7 @@ message Table {
 
 message Column {
     string name = 1;
-    string type = 2;
+    DataType type = 2;
     repeated Attribute attributes = 3;
 }
 
@@ -81,18 +82,18 @@ message Procedure {
     repeated string modifiers = 4;
     string body = 5;
     // either return_types or return_table should be set
-    repeated string return_types = 6;
-    ReturnTable return_table = 7;
+    repeated DataType return_types = 6;
+    repeated TypedVariable return_table = 7;
     repeated string annotations = 8;
-}
-
-message ReturnTable {
-    string name = 1;
-    repeated TypedVariable columns = 2;
 }
 
 
 message TypedVariable {
     string name = 1;
-    string type = 2;
+    DataType type = 2;
+}
+
+message DataType {
+    string name = 1;
+    bool is_array = 2;
 }
