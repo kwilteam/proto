@@ -82,9 +82,13 @@ message Procedure {
     repeated string modifiers = 4;
     string body = 5;
     // either return_types or return_table should be set
-    repeated DataType return_types = 6;
-    repeated TypedVariable return_table = 7;
-    repeated string annotations = 8;
+    ProcedureReturn return_types = 6;
+    repeated string annotations = 7;
+}
+
+message ProcedureReturn {
+    bool is_table = 1;
+    repeated TypedVariable columns = 2;
 }
 
 
