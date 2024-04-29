@@ -82,12 +82,12 @@ message Procedure {
     repeated string modifiers = 4;
     string body = 5;
     // either return_types or return_table should be set
-    ProcedureReturn return_types = 6;
+    ProcedureReturn return_types = 6 [json_name = "return_types"];
     repeated string annotations = 7;
 }
 
 message ProcedureReturn {
-    bool is_table = 1;
+    bool is_table = 1 [json_name = "is_table"];
     repeated TypedVariable fields = 2;
 }
 
@@ -99,5 +99,5 @@ message TypedVariable {
 
 message DataType {
     string name = 1;
-    bool is_array = 2;
+    bool is_array = 2 [json_name = "is_array"];
 }
