@@ -17,6 +17,7 @@ message Schema {
     repeated Action actions = 4;
     repeated Extensions extensions = 5;
     repeated Procedure procedures = 6;
+    repeated ForeignProcedure foreign_procedures = 7 [json_name = "foreign_procedures"];
 }
 
 message Table {
@@ -100,4 +101,10 @@ message TypedVariable {
 message DataType {
     string name = 1;
     bool is_array = 2 [json_name = "is_array"];
+}
+
+message ForeignProcedure {
+    string name = 1;
+    repeated DataType parameters = 2;
+    ProcedureReturn return_types = 3 [json_name = "return_types"];
 }
