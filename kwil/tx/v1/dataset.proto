@@ -11,13 +11,14 @@ message GetSchemaResponse {
 }
 
 message Schema {
-    bytes owner = 1;
-    string name = 2;
-    repeated Table tables = 3;
-    repeated Action actions = 4;
-    repeated Extensions extensions = 5;
-    repeated Procedure procedures = 6;
-    repeated ForeignProcedure foreign_procedures = 7 [json_name = "foreign_procedures"];
+    uint32 version = 1;
+    bytes owner = 2;
+    string name = 3;
+    repeated Table tables = 4;
+    repeated Action actions = 5;
+    repeated Extensions extensions = 6;
+    repeated Procedure procedures = 7;
+    repeated ForeignProcedure foreign_procedures = 8 [json_name = "foreign_procedures"];
 }
 
 message Table {
